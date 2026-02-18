@@ -1,0 +1,100 @@
+.container {
+  font-family: Arial, sans-serif; 
+  padding: 0 10px; 
+} 
+
+.boton{
+  background: linear-gradient(90deg, #d4ff00, #009e3c);
+  color: white; 
+  border: none; 
+  padding: 10px 20px; 
+  border-radius: 5px; 
+  cursor: pointer; 
+}
+ 
+.grid { 
+  display: grid; 
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); 
+  gap: 12px; 
+} 
+
+div{
+    background-color: #1C1C1E;
+}
+ 
+.card { 
+    width: 340px;
+  background-color: #121212;
+  border: 1px solid #ddd; 
+  border-radius: 10px; 
+  padding: 12px; 
+  color : white;
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.25s ease-out;
+  z-index: 1001;
+}
+
+.modal-contenido {
+  background: #1c1c1e;
+  padding: 25px;
+  border-radius: 12px;
+  width: 350px;
+  text-align: center;
+  position: relative;
+  color: white;
+  animation: scaleIn 0.25s ease-out;
+  box-shadow: 0 0 20px rgba(0,0,0,0.4);
+}
+
+.modal-img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.cerrar {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  font-size: 22px;
+  color: white;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.cerrar:hover {
+  color: #ff4d4d;
+}
+
+.posicion {
+  opacity: 0.8;
+  font-size: 14px;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.85); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.stats{
+    display: flex;
+    justify-content: space-around;
+}
+

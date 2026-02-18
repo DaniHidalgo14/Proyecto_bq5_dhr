@@ -91,9 +91,8 @@ router.get("/nombre/:nombre", async (req, res) => {
         PARADAS     AS "paradas",
         PORTERIASACERO AS "porteriasAcero",
         FOTO       AS "foto"
-        FROM JUGADORES WHERE nombre = :nombre ORDER BY DORSAL
-      `,
-      { nombre }
+        FROM JUGADORES WHERE upper(nombre) like '%' || upper(:nombre) || '%' ORDER BY DORSAL
+      `, { nombre }
     );
 
      res.json(result.rows);

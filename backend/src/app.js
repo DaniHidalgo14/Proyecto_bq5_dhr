@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const jugadoresRoutes = require("./routes/jugadores.routes");
 const app = express();
+app.use("/img", express.static("public/img")); 
 app.use(cors());
 app.use(express.json());
 app.get("/api/TIENDA", (req, res) => {

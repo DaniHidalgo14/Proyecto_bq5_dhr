@@ -1,0 +1,49 @@
+<div class="container">
+  <br>
+  <br>
+  <div class="row mt-4 p-2">
+    <h1 class="titulo">Buscar jugadores por posición</h1>
+    <select class="form-select mb-4" [(ngModel)]="posicionSeleccionada">
+      <option value="Portero">Portero</option>
+      <option value="Defensa">Defensa</option>
+      <option value="Centrocampista">Centrocampista</option>
+      <option value="Delantero">Delantero</option>
+    </select>
+    <button class="btn btn-primary mb-4" (click)="getDatos()">Filtrar</button>
+  @for(jugador of jugadores(); track jugador.nombre) {
+    <div class="card col-lg-4 col-md-6 col-sm-12 p-3 mb-4 mx-2">
+      <img src="{{ jugador.foto }}" class="card-img-top" alt="Foto de {{ jugador.nombre }}" width="50%" height="50%" />
+      <br><h3>{{ jugador.nombre }}</h3>
+      <small>Posición: {{ jugador.posicion }}</small><br>
+      <button (click)="abrirModal(jugador)" class="boton">Ver mas</button>
+    </div>
+  } @empty {
+    <p class="error">No hay nada que mostrar</p>
+  }
+</div>
+</div>
+
+<div class="modal" *ngIf="mostrarModal" (click)="cerrarModal()">
+  <div class="modal-contenido" (click)="$event.stopPropagation()">
+
+    <button class="cerrar" (click)="cerrarModal()">✕</button>
+
+    <img [src]="jugadorSeleccionado?.foto" class="modal-img" />
+
+    <h2>{{ jugadorSeleccionado?.nombre }}</h2>
+    <p class="posicion">{{ jugadorSeleccionado?.posicion }}</p>
+
+    <p><strong>Dorsal:</strong> {{ jugadorSeleccionado?.dorsal }}</p>
+
+    <p><strong>Goles:</strong> {{ jugadorSeleccionado?.goles }}</p>
+
+    <p><strong>Asistencias:</strong> {{ jugadorSeleccionado?.asistencias }}</p>
+
+    <p><strong>Paradas:</strong> {{ jugadorSeleccionado?.paradas}}</p>
+
+    <p><strong>Porterias a 0: </strong> {{ jugadorSeleccionado?.porteriasAcero }}</p>
+
+  </div>
+</div>
+
+
